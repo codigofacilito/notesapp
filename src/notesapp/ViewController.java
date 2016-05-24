@@ -52,6 +52,12 @@ public class ViewController implements Initializable {
         notes = new ArrayList<>();
         
         deleteBtn.setOnAction(event -> {
+            
+            //int i = (-1);
+            for(int i=currentNote.position+1;i<notes.size();i++){
+                Note note = notes.get(i);
+                note.position = notes.get(i).position - 1;
+            }
             notes.remove(currentNote);
             note_resumenes_property.remove(currentNote.position);
             if(notes.size() == 0){
